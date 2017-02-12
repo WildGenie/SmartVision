@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "智慧监控", "智慧监控\智慧监控.csproj", "{96195AA8-CAF4-4A55-BEC3-9F91D437604E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartVision", "SmartVision\SmartVision.csproj", "{96195AA8-CAF4-4A55-BEC3-9F91D437604E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dshow", "DLL\dshow\dshow.csproj", "{5EC8A299-78F8-4BDC-95D7-1AF66A01A073}"
 EndProject
