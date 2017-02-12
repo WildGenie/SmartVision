@@ -15,9 +15,9 @@ namespace IPCamera
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            欢迎 myWelcomeForm = new 欢迎();
+            Welcome myWelcomeForm = new Welcome();
             myWelcomeForm.ShowDialog();
-            登入界面 deLu = new 登入界面();
+            LoginForm deLu = new LoginForm();
             deLu.ShowDialog();
             if (Login == true)
             {

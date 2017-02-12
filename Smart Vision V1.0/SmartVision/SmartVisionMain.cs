@@ -65,8 +65,8 @@ namespace IPCamera
         private int[] statCount = new int[statLength];
 
 
-        摄像头信息 cameraInfo;
-        地图控件 map;
+        CameraInfo cameraInfo;
+        MapControl map;
 
         #endregion
 
@@ -260,7 +260,7 @@ namespace IPCamera
             }
             else if ( cameraToEdit.Provider.Name == "EasyN IP Camera")
             {
-                报警设置 setbao = new 报警设置();
+                AlarmSetting setbao = new AlarmSetting();
                 setbao.CamCGI.ConCam = cameraToEdit;
                 setbao.CamCGI.bangding();
                 setbao.Show();
@@ -281,7 +281,7 @@ namespace IPCamera
             }
             else if (cameraToEdit.Provider.Name == "EasyN IP Camera")
             {
-                报警邮件 youjian = new 报警邮件();
+                AlarmMessage youjian = new AlarmMessage();
                 youjian.CamCGI.ConCam = cameraToEdit;
                 youjian.CamCGI.bangding();
                 youjian.Show();
@@ -296,7 +296,7 @@ namespace IPCamera
         // 帮助->关于我们
         private void tsmi关于我们_Click(object sender, EventArgs e)
         {
-            关于我们 form = new 关于我们();
+            About form = new About();
             form.Show();
             form.TopMost = true;
         }
@@ -447,7 +447,7 @@ namespace IPCamera
             }
             else if (cameraToEdit.Provider.Name == "EasyN IP Camera")
             {
-                图像参数设置 Graph = new 图像参数设置();
+                ImageSetting Graph = new ImageSetting();
                 cameraToEdit = multiplexer.LastClicked.Camera;
                 Graph.CamCGI.ConCam = cameraToEdit;
                 Graph.CamCGI.bangding();
@@ -496,7 +496,7 @@ namespace IPCamera
         // 增加摄像头
         private void AddCamera()
         {
-            摄像头新增窗体 form = new 摄像头新增窗体();
+            AddNewCamera form = new AddNewCamera();
             // 设置提供商
             form.VideoProviders = config.providers;
             // 设置回调函数，用于测试摄像头
@@ -573,7 +573,7 @@ namespace IPCamera
                 return;
             }
 
-            摄像头配置窗体 form = new 摄像头配置窗体();
+            CameraConfig form = new CameraConfig();
             //设置提供商
             form.VideoProviders = config.providers;
             form.CheckCameraFunction = new CheckCameraHandler(CheckCamera);
@@ -593,7 +593,7 @@ namespace IPCamera
         // btn应用_Click>>Apply(this, new EventArgs());激发事件执行此函数
         private void editCamera_Apply(object sender, EventArgs e)   
         {
-            if (((配置窗体模板)sender).SelectedPageIndex == 1)     //第二配置界面
+            if (((ConfigTemplate)sender).SelectedPageIndex == 1)     //第二配置界面
             {
                 runningPool.Remove(cameraToEdit);
                 finalizationPool.Remove(cameraToEdit);
@@ -675,7 +675,7 @@ namespace IPCamera
                 return;
             }
 
-            cameraInfo = new 摄像头信息();
+            cameraInfo = new CameraInfo();
             cameraInfo.Camera = cameraToEdit;
             cameraInfo.TopMost = config.fullScreen;
             cameraInfo.ShowDialog();
@@ -890,14 +890,14 @@ namespace IPCamera
         private void callback()
         {
             CreatDataFiles();
-            播放器 fram = new 播放器();
+            Player fram = new Player();
             fram.Show();
         }
 
         // 电子地图功能函数
         private void take_map()
         {
-            map = new 地图控件();
+            map = new MapControl();
             panel1.Controls.Add(map);
             this.map.Dock = System.Windows.Forms.DockStyle.Fill;
             map.Show();

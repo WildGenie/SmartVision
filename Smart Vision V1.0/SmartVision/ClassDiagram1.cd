@@ -10,7 +10,7 @@
   <Class Name="IPCamera.Camera" Collapsed="true">
     <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAEQAgQABCAkgAwgYpAAAEQAASCEAAAKoQAQAIAAAio=</HashCode>
+      <HashCode>gAEQAwQABCAkgAwgYpAAAEQQASCEAAAKoQAQAIAAAio=</HashCode>
       <FileName>核心类\Camera.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,7 +31,7 @@
   <Class Name="IPCamera.Configuration" Collapsed="true">
     <Position X="13" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAASACQAQAAAAIggIAACQAAAABAgEAAEAAUAkAoAEAA=</HashCode>
+      <HashCode>AAASCCQAQAAAAKggIAACQQAAABAgEAAEAAUAkAoAEAA=</HashCode>
       <FileName>核心类\Configuration.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -95,32 +95,32 @@
   <Class Name="IPCamera.SmartVision" Collapsed="true">
     <Position X="7.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AE4TvOif175EYSKyRIj1BdeKDABoMBgF4OFxEU2GxCg=</HashCode>
-      <FileName>SmartVision.cs</FileName>
+      <HashCode>Gc5TvOSf1/4EYCqCQMv9R9OOFwh4MFmG4GGxFe0GxCg=</HashCode>
+      <FileName>SmartVisionMain.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.播放器" Collapsed="true">
+  <Class Name="IPCamera.Player" Collapsed="true">
     <Position X="11.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ADAgAABEACAAAAAAAACEIAAGQAhAAIAAEggAASJAAAA=</HashCode>
+      <HashCode>ADAgAABEASAAAAAAAACEICAGQAhAAIQAEkiAASJAAAA=</HashCode>
       <FileName>子窗体\播放器.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.登入界面" Collapsed="true">
+  <Class Name="IPCamera.LoginForm" Collapsed="true">
     <Position X="13" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAgAAAgKAAABEAAAiAAAACAAAAAAAAABAAACBiAAA=</HashCode>
-      <FileName>子窗体\登入界面.cs</FileName>
+      <FileName>子窗体\LoginScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.关于我们" Collapsed="true">
+  <Class Name="IPCamera.About" Collapsed="true">
     <Position X="6" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAABAAAASAAAACAAAoAABAAEAAAQAAAAA=</HashCode>
-      <FileName>子窗体\关于我们.cs</FileName>
+      <FileName>子窗体\About.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.欢迎" Collapsed="true">
+  <Class Name="IPCamera.Welcome" Collapsed="true">
     <Position X="7.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAABACAAAAAAAACAAAACAAAAIAAAAAAAAAAAAAA=</HashCode>
@@ -131,63 +131,63 @@
     <Position X="7.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>hBAAAECAASAAAAAAAACFAAACACAAggAAQAAAQgBAAAA=</HashCode>
-      <FileName>子窗体\检测提示.cs</FileName>
+      <FileName>子窗体\MainNotifyForm.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.配置窗体模板" Collapsed="true">
+  <Class Name="IPCamera.ConfigTemplate" Collapsed="true">
     <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAABAATCABgAIACCAAACCCBIAgAAAAAIAAAAAAAA=</HashCode>
       <FileName>子窗体\配置窗体模板.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.摄像头配置窗体" Collapsed="true">
+  <Class Name="IPCamera.CameraConfig" Collapsed="true">
     <Position X="3.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACBAAAAiIAAAAABACAAAACAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>子窗体\摄像头配置窗体.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.摄像头新增窗体" Collapsed="true">
+  <Class Name="IPCamera.AddNewCamera" Collapsed="true">
     <Position X="1.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACBAAAAiIAAAAABACAEAACAAAQAAAAAAAAAAAAAAQ=</HashCode>
-      <FileName>子窗体\摄像头新增窗体.cs</FileName>
+      <FileName>子窗体\NewCamera.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.摄像头信息" Collapsed="true">
+  <Class Name="IPCamera.CameraInfo" Collapsed="true">
     <Position X="13" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACACAAAiQCAAgAAACAAAACAACAAAAIAAIAAAAAAAA=</HashCode>
-      <FileName>子窗体\摄像头信息.cs</FileName>
+      <FileName>子窗体\CameraInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.图像参数设置" Collapsed="true">
+  <Class Name="IPCamera.ImageSetting" Collapsed="true">
     <Position X="14.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAgAAIACAAIAAAAAKAAAAGIABMAAAAAEQEBAISAAA=</HashCode>
-      <FileName>子窗体\图像参数设置.cs</FileName>
+      <FileName>子窗体\ImageSetting.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.新增向导模板" Collapsed="true">
+  <Class Name="IPCamera.NewTemplateWizard" Collapsed="true">
     <Position X="1.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAiAAABAQqiAAAAAACCCEEACCBCwgEJAAAAAIgAAAUA=</HashCode>
       <FileName>子窗体\新增向导模板.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.报警设置" Collapsed="true">
+  <Class Name="IPCamera.AlarmSetting" Collapsed="true">
     <Position X="7.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>KBEACAAAQCAAIBIAgEDAAAACAKAEgAAAAGSAACATAQE=</HashCode>
-      <FileName>子窗体\移动布防.cs</FileName>
+      <FileName>子窗体\AlarmSetting.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.报警邮件" Collapsed="true">
+  <Class Name="IPCamera.AlarmMessage" Collapsed="true">
     <Position X="9.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAwAQAIQCEAAAAABACAAQACAAAAAAAAAAAAAABYEAA=</HashCode>
-      <FileName>子窗体\邮件报警.cs</FileName>
+      <FileName>子窗体\AlarmMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IPCamera.CameraWindow" Collapsed="true">
@@ -200,7 +200,7 @@
   <Class Name="IPCamera.Multiplexer" Collapsed="true">
     <Position X="9.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAD+AwgAKWAAAkIAAIDKIIkCAiCAiAAAgAAsUAAEIEI=</HashCode>
+      <HashCode>AAD+AwgAKWAAAEIAAIDKIIkCAiCAiAAAgAAsUAAEIEI=</HashCode>
       <FileName>自定义控件\Multiplexer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -208,17 +208,17 @@
     <Position X="7.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAIAACAAYAAAARAAAASACABAAAAIAAAAAACAAA=</HashCode>
-      <FileName>自定义控件\菜单栏单选.cs</FileName>
+      <FileName>自定义控件\ToolStripRadioButtonMenuItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.地图控件" Collapsed="true">
+  <Class Name="IPCamera.MapControl" Collapsed="true">
     <Position X="14.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAIAAAADAAAAgAQACAAEgCgAABIAAAAAAAAQAAIAA=</HashCode>
+      <HashCode>AgQAAAAAACAIACgAAACQBUgigAICAAACAAACAQAAAAA=</HashCode>
       <FileName>自定义控件\地图控件.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.摄像头描述" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="IPCamera.CameraDescription" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="9.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACBAYBQjACBBIAIACCAQFCABAAAAAAAAAgBAAAACQ=</HashCode>
@@ -226,15 +226,15 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="IPCamera.摄像头配置" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="IPCamera.CameraConfing" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="11.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAQBAjAEBAIAAACCAQACABCAAAAAAAAAAAAAACA=</HashCode>
-      <FileName>自定义控件\摄像头配置.cs</FileName>
+      <HashCode>AAACAAQBAjAEAAIAAACCAQACABCAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>自定义控件\CameraConfig.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="IPCamera.云台控制" Collapsed="true">
+  <Class Name="IPCamera.PTZControl" Collapsed="true">
     <Position X="6" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAEAAACECAEAAAgAACAIAACAAAAAAEAAAAAAIAQAAA=</HashCode>
@@ -244,7 +244,7 @@
   <Class Name="IPCamera.Properties.Resources" Collapsed="true">
     <Position X="13" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABAAAAAAAJEAAAAQAEAAAAAAAAAAAAQIA=</HashCode>
+      <HashCode>AAAAAAAAAAABAAAAAAAJEAAAAQAEAAAAHAAAAAAAQIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="IPCamera.Properties.Settings" Collapsed="true">
@@ -256,7 +256,7 @@
   <Interface Name="IPCamera.IWizardPage" Collapsed="true">
     <Position X="6" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABABAABAIAAAACAQAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <HashCode>AAAAAAABABAAAAIAAAACAQAAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>核心类\IWizardPage.cs</FileName>
     </TypeIdentifier>
   </Interface>
