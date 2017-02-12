@@ -929,7 +929,7 @@ namespace IPCamera
             {
                 Directory.CreateDirectory(str);                           //创建该文件夹 
             }
-            string str1 = Application.StartupPath + @"\SmartVision\视频"; //路径的正确写法 
+            string str1 = Application.StartupPath + @"\SmartVision\Video"; //路径的正确写法 
             if (Directory.Exists(str1))                                   //如果不存在就创建file文件夹 
             {
             }
@@ -937,7 +937,7 @@ namespace IPCamera
             {
                 Directory.CreateDirectory(str1);                          //创建该文件夹 
             }
-            string str2 = Application.StartupPath + @"\SmartVision\图片"; //路径的正确写法 
+            string str2 = Application.StartupPath + @"\SmartVision\Image\"; //路径的正确写法 
             if (Directory.Exists(str2))                                   //如果不存在就创建file文件夹 
             {
             }

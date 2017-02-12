@@ -231,7 +231,7 @@ namespace IPCamera
             con.Credentials = new NetworkCredential(login, password);
             DateTime date = DateTime.Now;
             String fileName = String.Format("{0}-{1}-{2} {3}-{4}-{5}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
-            con.DownloadFile(url, String.Format(".\\SmartVision\\图片\\Camera_Vision_{0}_{1}.jpg", concam.Name, fileName));
+            con.DownloadFile(url, String.Format(".\\SmartVision\\Image\\Camera_Vision_{0}_{1}.jpg", concam.Name, fileName));
         }
     }
 }

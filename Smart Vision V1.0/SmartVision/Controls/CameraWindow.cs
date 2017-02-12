@@ -113,7 +113,7 @@ namespace IPCamera
                     Font drawFont = new Font("Arial", 12);
                     SolidBrush drawBrush = new SolidBrush(Color.White);
 
-                    g.DrawString("梦之缘正在努力O(∩_∩)O。。。。。", drawFont, drawBrush, new PointF(5, 5));
+                    g.DrawString("Loading。。。。。", drawFont, drawBrush, new PointF(5, 5));
 
                     drawBrush.Dispose();
                     drawFont.Dispose();

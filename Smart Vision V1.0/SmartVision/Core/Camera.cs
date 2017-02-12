@@ -235,7 +235,7 @@ namespace IPCamera
                 photoing = false;
                 DateTime date = DateTime.Now;
                 String fileName = String.Format("{0}-{1}-{2} {3}-{4}-{5}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
-                recordFrame.Save(String.Format(".\\SmartVision\\图片\\Camera_Vision_{0}_{1}.jpg", name, fileName), ImageFormat.Jpeg);
+                recordFrame.Save(String.Format(".\\SmartVision\\Image\\Camera_Vision_{0}_{1}.jpg", name, fileName), ImageFormat.Jpeg);
             }
 
             // 解锁
@@ -253,7 +253,7 @@ namespace IPCamera
         {
             DateTime date = DateTime.Now;
             String fileName = String.Format("{0}-{1}-{2} {3}-{4}-{5}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
-            aviWriter.Open(String.Format(".\\SmartVision\\视频\\Camera_Vision_{0}_{1}.avi", name, fileName), width, height);
+            aviWriter.Open(String.Format(".\\SmartVision\\Video\\Camera_Vision_{0}_{1}.avi", name, fileName), width, height);
             aviWriter.FrameRate = 25;
             aviWriter.Quality = 100;
         }

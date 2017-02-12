@@ -12,8 +12,8 @@ namespace IPCamera
 {
     public partial class Player : Form
     {
-        string Pathvideo = Application.StartupPath + @"\SmartVision\视频\";
-        string Pathpicture = Application.StartupPath + @"\SmartVision\图片\";
+        string Pathvideo = Application.StartupPath + @"\SmartVision\Video\";
+        string Pathpicture = Application.StartupPath + @"\SmartVision\Image\";
         public static int NUM=0;
         TreeNode CountNode = new TreeNode("Smart Vision");
         ArrayList pictures;
@@ -196,7 +196,7 @@ namespace IPCamera
             CountNode.Nodes.Add(pictureNode);
             TreeNode videoNode = new TreeNode("video");
             CountNode.Nodes.Add(videoNode);
-            DirectoryInfo d = new DirectoryInfo(@"" + Application.StartupPath + @"\SmartVision\图片");
+            DirectoryInfo d = new DirectoryInfo(@"" + Application.StartupPath + @"\SmartVision\Image\");
             pictures = GetAll(d);
             for (int i = 0; i < pictures.Count; i++)
             {
@@ -208,7 +208,7 @@ namespace IPCamera
                     pictureNode.Nodes.Remove(aNode);
                 }
             }
-            DirectoryInfo c = new DirectoryInfo(@"" + Application.StartupPath + @"\SmartVision\视频");
+            DirectoryInfo c = new DirectoryInfo(@"" + Application.StartupPath + @"\SmartVision\Video");
             ArrayList videos = GetAll(c);
             for (int i = 0; i < videos.Count; i++)
             {
