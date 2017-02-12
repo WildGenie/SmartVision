@@ -118,10 +118,10 @@ namespace IPCamera
 
             // 开始写入
             xmlOut.WriteStartDocument();
-            xmlOut.WriteComment("智慧监控系统配置文件");
+            xmlOut.WriteComment("SmartVision系统配置文件");
 
             // 根目录
-            xmlOut.WriteStartElement("智慧监控");
+            xmlOut.WriteStartElement("SmartVision");
 
             // 主窗体目录
             xmlOut.WriteStartElement("MainWindow");
@@ -155,7 +155,7 @@ namespace IPCamera
                     xmlIn.MoveToContent();
 
                     // 匹配根目录
-                    if (xmlIn.Name != "智慧监控")
+                    if (xmlIn.Name != "SmartVision")
                         throw new ApplicationException("");
 
                     // 匹配下一节点

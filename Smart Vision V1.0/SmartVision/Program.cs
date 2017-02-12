@@ -21,7 +21,7 @@ namespace IPCamera
             deLu.ShowDialog();
             if (Login == true)
             {
-                Application.Run(new IPCamera.智慧监控());
+                Application.Run(new IPCamera.SmartVision());
             } 
         }
     }

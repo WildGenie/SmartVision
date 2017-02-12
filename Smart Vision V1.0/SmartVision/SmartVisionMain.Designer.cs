@@ -6,7 +6,7 @@ using System.Timers;
 
 namespace IPCamera
 {
-    partial class 智慧监控
+    partial class SmartVision
     {
         /// <summary>
         /// Required designer variable.
@@ -27,7 +27,7 @@ namespace IPCamera
         }
 
         #region Windows Form Designer generated code
-        System.ComponentModel.ComponentResourceManager resource = new System.ComponentModel.ComponentResourceManager(typeof(智慧监控));
+        System.ComponentModel.ComponentResourceManager resource = new System.ComponentModel.ComponentResourceManager(typeof(SmartVision));
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -35,7 +35,7 @@ namespace IPCamera
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(智慧监控));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SmartVision));
             this.ts工具栏 = new System.Windows.Forms.ToolStrip();
             this.tsb添加摄像头 = new System.Windows.Forms.ToolStripButton();
             this.tsb配置摄像头 = new System.Windows.Forms.ToolStripButton();
@@ -95,7 +95,7 @@ namespace IPCamera
             this.cmenu图像参数 = new System.Windows.Forms.ToolStripMenuItem();
             this.cmenu打开摄像头 = new System.Windows.Forms.ToolStripMenuItem();
             this.cmenu关闭摄像头 = new System.Windows.Forms.ToolStripMenuItem();
-            this.SmartVision = new System.Windows.Forms.NotifyIcon(this.components);
+            this.niSmartVision = new System.Windows.Forms.NotifyIcon(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.stop = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -648,10 +648,10 @@ namespace IPCamera
             // 
             // SmartVision
             // 
-            this.SmartVision.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.SmartVision.Icon = ((System.Drawing.Icon)(resources.GetObject("SmartVision.Icon")));
-            this.SmartVision.Text = "notifyIcon1";
-            this.SmartVision.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            this.niSmartVision.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.niSmartVision.Icon = ((System.Drawing.Icon)(resources.GetObject("SmartVision.Icon")));
+            this.niSmartVision.Text = "notifyIcon1";
+            this.niSmartVision.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // timer2
             // 
@@ -695,7 +695,7 @@ namespace IPCamera
             this.timer3.Interval = 40;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // 智慧监控
+            // SmartVision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -709,11 +709,11 @@ namespace IPCamera
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mainMenu主菜单;
-            this.Name = "智慧监控";
+            this.Name = "SmartVision";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Smart Vision";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.智慧监控_FormClosing);
-            this.Load += new System.EventHandler(this.智慧监控_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SmartVision_FormClosing);
+            this.Load += new System.EventHandler(this.SmartVision_Load);
             this.ts工具栏.ResumeLayout(false);
             this.ts工具栏.PerformLayout();
             this.mainMenu主菜单.ResumeLayout(false);
@@ -775,7 +775,7 @@ namespace IPCamera
         private ToolStripButton tsb地图;
         private ToolStripMenuItem tsmiVeiw9;
         private ToolStripMenuItem cmenu图像参数;
-        private NotifyIcon SmartVision;
+        private NotifyIcon niSmartVision;
         private System.Windows.Forms.Timer timer2;
         private ToolStripMenuItem 设置ToolStripMenuItem;
         private ToolStripMenuItem 报警ToolStripMenuItem;

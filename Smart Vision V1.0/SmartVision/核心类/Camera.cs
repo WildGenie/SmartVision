@@ -225,9 +225,9 @@ namespace IPCamera
             width = lastFrame.Width;
             height = lastFrame.Height;
 
-            if (智慧监控.detector != null && 智慧监控.luzhi1 == false)
+            if (SmartVision.detector != null && SmartVision.luzhi1 == false)
             {
-                智慧监控.motionLevel = 智慧监控.detector.ProcessFrame(lastFrame);
+                SmartVision.motionLevel = SmartVision.detector.ProcessFrame(lastFrame);
             }
 
             if (photoing == true)

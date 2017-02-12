@@ -92,11 +92,11 @@
       <FileName>核心类\Win32.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IPCamera.智慧监控" Collapsed="true">
+  <Class Name="IPCamera.SmartVision" Collapsed="true">
     <Position X="7.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AE4TvOif175EYSKyRIj1BdeKDABoMBgF4OFxEU2GxCg=</HashCode>
-      <FileName>智慧监控.cs</FileName>
+      <FileName>SmartVision.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IPCamera.播放器" Collapsed="true">

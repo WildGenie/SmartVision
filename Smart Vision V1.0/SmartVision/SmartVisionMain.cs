@@ -18,7 +18,7 @@ using Accord.Imaging;
 
 namespace IPCamera
 {
-    public partial class 智慧监控 : Form
+    public partial class SmartVision : Form
     {
         #region 成员变量
 
@@ -73,7 +73,7 @@ namespace IPCamera
         #region 加载关闭窗体，初始化函数
 
         // 构造函数
-        public 智慧监控()
+        public SmartVision()
         {
             InitializeComponent();
         }
@@ -99,11 +99,11 @@ namespace IPCamera
         }
 
         // 加载窗体
-        private void 智慧监控_Load(object sender, EventArgs e)
+        private void SmartVision_Load(object sender, EventArgs e)
         {
             // 创建历史数据存放文件夹，存放视频和图片
             CreatDataFiles();
-            SmartVision.Visible = true;
+            niSmartVision.Visible = true;
             if (config.LoadSettings())
             {
                 this.Location = config.mainWindowLocation;
@@ -118,9 +118,9 @@ namespace IPCamera
         }
 
         // 关闭窗体
-        private void 智慧监控_FormClosing(object sender, FormClosingEventArgs e)
+        private void SmartVision_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SmartVision.Visible = false;
+            niSmartVision.Visible = false;
             if (!config.fullScreen)
             {
                 config.mainWindowLocation = this.Location;
@@ -1003,7 +1003,7 @@ namespace IPCamera
         {
             MainForm.Instance().CloseForm();
             timer2.Enabled = false;
-            SmartVision.Icon = Properties.Resources._1;
+            niSmartVision.Icon = Properties.Resources._1;
             if (windowCreate)
             {
                 base.Visible = false;
@@ -1096,12 +1096,12 @@ namespace IPCamera
         {
             if (flag == false)
             {
-                SmartVision.Icon = Properties.Resources._2;
+                niSmartVision.Icon = Properties.Resources._2;
                 flag = true;
             }
             else
             {
-                SmartVision.Icon = Properties.Resources._1;
+                niSmartVision.Icon = Properties.Resources._1;
                 flag = false;
             }
         }
