@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Threading
 ;
@@ -12,41 +12,41 @@ namespace IPCamera
 		private Thread	thread;
 		private ManualResetEvent stopEvent = null;
 
-		// ¿Õ¹¹Ôìº¯Êı
+		// ç©ºæ„é€ å‡½æ•°
 		public FinalizationPool()
 		{
 		}
 
-		// ¿ªÊ¼Ïß³Ì
+		// å¼€å§‹çº¿ç¨‹
 		public void Start()
 		{
-			// ´´½¨ÊÂ¼ş
-            stopEvent = new ManualResetEvent(false);    //Èç¹ûÎª true£¬Ôò½«³õÊ¼×´Ì¬ÉèÖÃÎªÖÕÖ¹£»Èç¹ûÎª false£¬Ôò½«³õÊ¼×´Ì¬ÉèÖÃÎª·ÇÖÕÖ¹¡£
+			// åˆ›å»ºäº‹ä»¶
+            stopEvent = new ManualResetEvent(false);    //å¦‚æœä¸º trueï¼Œåˆ™å°†åˆå§‹çŠ¶æ€è®¾ç½®ä¸ºç»ˆæ­¢ï¼›å¦‚æœä¸º falseï¼Œåˆ™å°†åˆå§‹çŠ¶æ€è®¾ç½®ä¸ºéç»ˆæ­¢ã€‚
 				
-			// ´´½¨ºÍ¿ªÊ¼ĞÂÏß³Ì
+			// åˆ›å»ºå’Œå¼€å§‹æ–°çº¿ç¨‹
 			thread = new Thread(new ThreadStart(WorkerThread));
 			thread.Start();
 		}
 
-		// Í£Ö¹Ïß³Ì
+		// åœæ­¢çº¿ç¨‹
 		public void Stop()
 		{
 			if (thread != null)
 			{
-				// ¸ø³öÍ£Ö¹ĞÅºÅ
-				stopEvent.Set();      //½«ÊÂ¼ş×´Ì¬ÉèÖÃÎªÖÕÖ¹×´Ì¬
-				// µÈ´ıÏß³ÌÖÕÖ¹
+				// ç»™å‡ºåœæ­¢ä¿¡å·
+				stopEvent.Set();      //å°†äº‹ä»¶çŠ¶æ€è®¾ç½®ä¸ºç»ˆæ­¢çŠ¶æ€
+				// ç­‰å¾…çº¿ç¨‹ç»ˆæ­¢
 				thread.Join();
 
 				thread = null;
 
-				// ÊÍ·ÅÊÂ¼ş
+				// é‡Šæ”¾äº‹ä»¶
 				stopEvent.Close();
 				stopEvent = null;
 			}
 		}
 
-		// Ïß³Ì½øÈëµã
+		// çº¿ç¨‹è¿›å…¥ç‚¹
 		private void WorkerThread()
 		{
 			while (!stopEvent.WaitOne(0, true))
@@ -55,7 +55,7 @@ namespace IPCamera
 
                 int n = InnerList.Count;
 
-				// ²éÑ¯Ã¿Ò»¸öÉãÏñÍ·
+				// æŸ¥è¯¢æ¯ä¸€ä¸ªæ‘„åƒå¤´
 				for (int i = 0; i < n; i++)
 				{
 					Camera camera = (Camera) InnerList[i];
@@ -70,18 +70,18 @@ namespace IPCamera
 				}
 				Monitor.Exit(this);
 
-                //µÈ´ı
+                //ç­‰å¾…
 				Thread.Sleep(300);
 			}
 
-            //¹Ø±ÕÉãÏñÍ·
+            //å…³é—­æ‘„åƒå¤´
 			foreach (Camera camera in InnerList)
 			{
 				camera.Stop();
 			}
 		}
 
-		// Ôö¼ÓĞÂÉãÏñÍ·
+		// å¢åŠ æ–°æ‘„åƒå¤´
 		public void Add(Camera camera)
 		{
 			Monitor.Enter(this);
@@ -89,7 +89,7 @@ namespace IPCamera
 			Monitor.Exit(this);
 		}
 
-		// ÒÆ³ıÉãÏñÍ·
+		// ç§»é™¤æ‘„åƒå¤´
 		public void Remove(Camera camera)
 		{
 			Monitor.Enter(this);

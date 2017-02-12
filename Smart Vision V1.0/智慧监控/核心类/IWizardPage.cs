@@ -1,31 +1,31 @@
-using System;
+ï»¿using System;
 
 namespace IPCamera
 {
 	/// <summary>
-	/// IWizardPage - Ïòµ¼Ò³Ãæ½Ó¿Ú
+	/// IWizardPage - å‘å¯¼é¡µé¢æ¥å£
 	/// </summary>
 	public interface IWizardPage
 	{
-        //×´Ì¬¸Ä±äÊÂ¼ş
+        //çŠ¶æ€æ”¹å˜äº‹ä»¶
 		event EventHandler StateChanged;
 
-		//ĞÅÏ¢ÖØÖÃÊÂ¼ş
+		//ä¿¡æ¯é‡ç½®äº‹ä»¶
 		//event EventHandler Reset;
 
-        //Ò³ÃæÃû×Ö
+        //é¡µé¢åå­—
 		string PageName { get; }
 
-		//ÃèÊöÊôĞÔ
+		//æè¿°å±æ€§
 		string PageDescription { get; }
 
-		// Íê³É£¬µ±Ò³ÃæÉèÖÃÍê³É£¬¿ÉÒÔ½øÈëÏÂÒ»Ò³
+		// å®Œæˆï¼Œå½“é¡µé¢è®¾ç½®å®Œæˆï¼Œå¯ä»¥è¿›å…¥ä¸‹ä¸€é¡µ
 		bool Completed { get; }
 
-        // ³ÊÏÖÒ³Ãæ
+        // å‘ˆç°é¡µé¢
 		void Display();
         
-        // Ó¦ÓÃÅäÖÃ
+        // åº”ç”¨é…ç½®
 		bool Apply();
 	}
 }

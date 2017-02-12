@@ -1,23 +1,23 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.IO;
 using System.Reflection;
 using videosource;
-//@ÃÎÖ®Ôµ¹¤×÷·»
+//@æ¢¦ä¹‹ç¼˜å·¥ä½œåŠ
 
 namespace IPCamera
 {
 	/// <summary>
-	/// VideoProviderCollection class - ÊÕ¼¯ÊÓÆµÌá¹©ÉÌ
+	/// VideoProviderCollection class - æ”¶é›†è§†é¢‘æä¾›å•†
 	/// </summary>
-    public class VideoProviderCollection : CollectionBase   //¼Ì³ĞÀà£¬ÓĞInnerListÊôĞÔ
+    public class VideoProviderCollection : CollectionBase   //ç»§æ‰¿ç±»ï¼Œæœ‰InnerListå±æ€§
 	{
-		// ¹¹Ôìº¯Êı
+		// æ„é€ å‡½æ•°
 		public VideoProviderCollection()
 		{
 		}
 
-		// ¸ù¾İĞòºÅ»ñÈ¡ÊÓÆµÔ´
+		// æ ¹æ®åºå·è·å–è§†é¢‘æº
 		public VideoProvider this[int index]
 		{
 			get
@@ -26,7 +26,7 @@ namespace IPCamera
 			}
 		}
 
-		// ¸ù¾İÃû×Ö»ñµÃÌá¹©ÉÌ
+		// æ ¹æ®åå­—è·å¾—æä¾›å•†
 		public VideoProvider GetProviderByName(string name)
 		{
 			foreach (VideoProvider provider in InnerList)
@@ -39,26 +39,26 @@ namespace IPCamera
 			return null;
 		}
 
-		// £¡£¡£¡£¡£¡¼ÓÔØËùÓĞÊÓÆµÌá¹©ÉÌ£¬Í¨¹ıDLL£¡£¡£¡£¡
+		// ï¼ï¼ï¼ï¼ï¼åŠ è½½æ‰€æœ‰è§†é¢‘æä¾›å•†ï¼Œé€šè¿‡DLLï¼ï¼ï¼ï¼
 		public void Load(string path)
 		{
-            // ÊµÀı»¯DirectoryInfoÀà
+            // å®ä¾‹åŒ–DirectoryInfoç±»
 			DirectoryInfo dir = new DirectoryInfo(path);
 
-			// »ñÈ¡pathÏÂËùÒÔdllÎÄ¼ş
+			// è·å–pathä¸‹æ‰€ä»¥dllæ–‡ä»¶
 			FileInfo[] files = dir.GetFiles("*.dll");
 
-			// Àú±éËùÓĞdllÎÄ¼ş
+			// å†éæ‰€æœ‰dllæ–‡ä»¶
 			foreach (FileInfo f in files)
 			{
-				LoadAssembly(Path.Combine(path, f.Name));   //ºÏ²¢Â·¾¶£¬
+				LoadAssembly(Path.Combine(path, f.Name));   //åˆå¹¶è·¯å¾„ï¼Œ
 			}
 
-            // ¶ÔÌá¹©ÉÌ¼Ì³ĞIComparable£¬½øĞĞÅÅĞò¡£
+            // å¯¹æä¾›å•†ç»§æ‰¿IComparableï¼Œè¿›è¡Œæ’åºã€‚
 			InnerList.Sort();      
 		}
 
-		// ¼ÓÔØ³ÌĞò¼¯
+		// åŠ è½½ç¨‹åºé›†
 		private void LoadAssembly(string fname)
 		{
 			Type typeVideoSourceDesc = typeof(IVideoSourceDescription);
@@ -66,28 +66,28 @@ namespace IPCamera
 
 			try
 			{
-				// ¼ÓÔØassembly³ÌĞò¼¯
+				// åŠ è½½assemblyç¨‹åºé›†
 				asm = Assembly.LoadFrom(fname);
 
-				// »ñÈ¡³ÌĞò¼¯type
+				// è·å–ç¨‹åºé›†type
 				Type[] types = asm.GetTypes();
 
-				// ¼ìÑé¸÷ÖÖÀàĞÍ
+				// æ£€éªŒå„ç§ç±»å‹
 				foreach (Type type in types)
 				{
-					// »ñÈ¡½Ó¿Ú
+					// è·å–æ¥å£
 					Type[] interfaces = type.GetInterfaces();
 
-					// ¼ì²étypeÊÇ·ñ¼Ì³Ğ IVideoSourceDescription
-                    if (Array.IndexOf(interfaces, typeVideoSourceDesc) != -1)    //ÔÚinterfacesÖĞÆ¥ÅätypeVideoSourceDescÀàĞÍ
+					// æ£€æŸ¥typeæ˜¯å¦ç»§æ‰¿ IVideoSourceDescription
+                    if (Array.IndexOf(interfaces, typeVideoSourceDesc) != -1)    //åœ¨interfacesä¸­åŒ¹é…typeVideoSourceDescç±»å‹
 					{
 						IVideoSourceDescription	desc = null;
 
 						try
 						{
-							// ´´½¨´ËtypeµÄÊµÀı
+							// åˆ›å»ºæ­¤typeçš„å®ä¾‹
 							desc = (IVideoSourceDescription) Activator.CreateInstance(type);
-							// ´´½¨Ìá¹©ÉÌ¶ÔÏó
+							// åˆ›å»ºæä¾›å•†å¯¹è±¡
 							InnerList.Add(new VideoProvider(desc));
 						}
 						catch (Exception)

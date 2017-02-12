@@ -1,14 +1,14 @@
-using System;
+ï»¿using System;
 using System.Collections;
 
 namespace IPCamera
 {
 	/// <summary>
-	/// ViewCollection Ò³Ãæ¼¯ºÏÀà
+	/// ViewCollection é¡µé¢é›†åˆç±»
 	/// </summary>
 	public class ViewCollection : CollectionBase
 	{
-        // ¸ù¾İindex²éÑ¯Ò³Ãæ
+        // æ ¹æ®indexæŸ¥è¯¢é¡µé¢
 		public View this[int index]
 		{
 			get
@@ -17,7 +17,7 @@ namespace IPCamera
 			}
 		}
 
-        // ¸ù¾İÃû×Ö»ñµÃÒ³Ãæ
+        // æ ¹æ®åå­—è·å¾—é¡µé¢
         public View GetView(string name)
         {
             foreach (View view in InnerList)
@@ -28,13 +28,13 @@ namespace IPCamera
             return null;
         }
 
-		// °ÑĞÂÒ³Ãæ¼Óµ½¼¯ºÏÖĞ
+		// æŠŠæ–°é¡µé¢åŠ åˆ°é›†åˆä¸­
 		public void Add(View view)
 		{
 			InnerList.Add(view);
 		}
 
-        // °ÑÒ³Ãæ´Ó¼¯ºÏÖĞÒÆ³ı
+        // æŠŠé¡µé¢ä»é›†åˆä¸­ç§»é™¤
 		public void Remove(View view)
 		{
 			InnerList.Remove(view);

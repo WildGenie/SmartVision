@@ -1,6 +1,6 @@
-using System;
+ï»¿using System;
 using System.Collections;
-//@ÃÎÖ®Ôµ¹¤×÷·»
+//@æ¢¦ä¹‹ç¼˜å·¥ä½œåŠ
 
 namespace IPCamera
 {
@@ -9,12 +9,12 @@ namespace IPCamera
 	/// </summary>
 	public class RunningPool : CollectionBase
 	{
-		// ¿Õ¹¹Ôìº¯Êı
+		// ç©ºæ„é€ å‡½æ•°
 		public RunningPool()
 		{
 		}
 
-		// »ñÈ¡ÉãÏñÍ·
+		// è·å–æ‘„åƒå¤´
 		public Camera this[int index]
 		{
 			get
@@ -23,13 +23,13 @@ namespace IPCamera
 			}
 		}
 
-        // ĞÂÔöcamera£¬¿ªÊ¼ÅÜÊÓÆµ
+        // æ–°å¢cameraï¼Œå¼€å§‹è·‘è§†é¢‘
 		public bool Add(Camera camera)
 		{
-			// ´´½¨ÊÓÆµÔ´
+			// åˆ›å»ºè§†é¢‘æº
 			if (camera.CreateVideoSource())
 			{
-				// Ôö¼Óµ½poolÖĞ
+				// å¢åŠ åˆ°poolä¸­
 				InnerList.Add(camera);
 				camera.Start();
 				return true;
@@ -37,10 +37,10 @@ namespace IPCamera
 			return false;
 		}
 
-		// ´Ó¼¯ÖĞÒÆ³ıCamera£¬ĞÅºÅ¹Ø±Õ¡£
+		// ä»é›†ä¸­ç§»é™¤Cameraï¼Œä¿¡å·å…³é—­ã€‚
 		public void Remove(Camera camera)
 		{
-            try                          //Ò³ÃæÊÓÆµ¸öÊı¼°Î»ÖÃĞèÒª´ÓĞÂÅÅÁĞ
+            try                          //é¡µé¢è§†é¢‘ä¸ªæ•°åŠä½ç½®éœ€è¦ä»æ–°æ’åˆ—
             { 
                 camera.SignalToStop();
             }
@@ -51,7 +51,7 @@ namespace IPCamera
             
 			InnerList.Remove(camera);
 
-            // ĞÅºÅ¹Ø±Õ
+            // ä¿¡å·å…³é—­
 			
 		}
 	}

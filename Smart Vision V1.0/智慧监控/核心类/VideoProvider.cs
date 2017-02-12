@@ -1,6 +1,5 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml;
 using videosource;
@@ -8,37 +7,37 @@ using videosource;
 namespace IPCamera
 {
 	/// <summary>
-	/// VideoProvider ÊÓÆµÔ´Àà     
+	/// VideoProvider è§†é¢‘æºç±»     
 	/// </summary> 
-    public class VideoProvider : IComparable    //¼Ì³ĞIComparable½Ó¿Ú ±È½Ï¶ÔÏó·µ»ØÕûĞÍ¸ºÊı£¬ÔòÎªĞ¡ÓÚ¡£
+    public class VideoProvider : IComparable    //ç»§æ‰¿IComparableæ¥å£ æ¯”è¾ƒå¯¹è±¡è¿”å›æ•´å‹è´Ÿæ•°ï¼Œåˆ™ä¸ºå°äºã€‚
 	{
-		private IVideoSourceDescription	sourceDesc = null;  //°Ñvideosource½Ó¿Ú»ñµÃµÄÊı¾İÍ¨¹ı´ËÊµÀı´«µİ¡£
+		private IVideoSourceDescription	sourceDesc = null;  //æŠŠvideosourceæ¥å£è·å¾—çš„æ•°æ®é€šè¿‡æ­¤å®ä¾‹ä¼ é€’ã€‚
 
-		// Name Ãû×ÖÊôĞÔ
+		// Name åå­—å±æ€§
 		public string Name
 		{
 			get { return sourceDesc.Name; }
 		}
 
-		// Description ½éÉÜÊôĞÔ
+		// Description ä»‹ç»å±æ€§
 		public string Description
 		{
 			get { return sourceDesc.Description; }
 		}
 
-		// ProviderName Ìá¹©ÉÌÃû×ÖÊôĞÔ£¿£¿£¿
+		// ProviderName æä¾›å•†åå­—å±æ€§ï¼Ÿï¼Ÿï¼Ÿ
 		public string ProviderName
 		{
 			get { return sourceDesc.GetType().ToString(); }
 		}
 
-        // ¹¹Ôìº¯Êı ¸ù¾İ²ÎÊı½¨Á¢sourceDesc
+        // æ„é€ å‡½æ•° æ ¹æ®å‚æ•°å»ºç«‹sourceDesc
 		public VideoProvider(IVideoSourceDescription sourceDesc)
 		{
 			this.sourceDesc = sourceDesc;
 		}
 
-		// ±È½ÏÀàĞÍ
+		// æ¯”è¾ƒç±»å‹
 		public int CompareTo(object obj)
 		{
 			if (obj == null)
@@ -48,25 +47,25 @@ namespace IPCamera
 			return (this.Name.CompareTo(p.Name));
 		}
 
-		// »ñÈ¡ÊÓÆµÔ´ÅäÖÃÒ³Ãæ
+		// è·å–è§†é¢‘æºé…ç½®é¡µé¢
 		public IVideoSourcePage GetSettingsPage()
 		{
 			return sourceDesc.GetSettingsPage();
 		}
 
-		// ±£´æÅäÖÃ
+		// ä¿å­˜é…ç½®
 		public void SaveConfiguration(XmlTextWriter writer, object config)
 		{
 			sourceDesc.SaveConfiguration(writer, config);
 		}
 
-		// ¼ÓÔØÅäÖÃ
+		// åŠ è½½é…ç½®
 		public object LoadConfiguration(XmlTextReader reader)
 		{
 			return sourceDesc.LoadConfiguration(reader);
 		}
 
-		// ´´½¨ÊÓÆµÔ´
+		// åˆ›å»ºè§†é¢‘æº
 		public IVideoSource CreateVideoSource(object config)
 		{
 			return sourceDesc.CreateVideoSource(config);

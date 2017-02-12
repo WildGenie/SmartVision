@@ -1,18 +1,19 @@
-using System;
+ï»¿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Threading;
 using videosource;
-using Tiger.Video.VFW;
 
 namespace IPCamera
 {
+    using Accord.Video.VFW;
+
     /// <summary>
-    /// Camera ÊÓÆµÀà
+    /// Camera è§†é¢‘ç±»
     /// </summary>
     public class Camera
     {
-        private int id = 0;         //±àºÅ£¬Ãû×Ö£¬½éÉÜ£¬×é±ğ£¬ÉèÖÃ£¬ÊÓÆµÌá¹©ÉÌ£¬ÊÓÆµ×ÊÔ´£¬×îºóÒ»Ö¡
+        private int id = 0;         //ç¼–å·ï¼Œåå­—ï¼Œä»‹ç»ï¼Œç»„åˆ«ï¼Œè®¾ç½®ï¼Œè§†é¢‘æä¾›å•†ï¼Œè§†é¢‘èµ„æºï¼Œæœ€åä¸€å¸§
         private string name;
         private string description = "";
         private object configuration = null;
@@ -22,131 +23,131 @@ namespace IPCamera
 
         private Bitmap lastFrame = null;
         private Bitmap recordFrame = null;
-        private int width = -1, height = -1;      //³¤¿í
+        private int width = -1, height = -1;      //é•¿å®½
 
-        AVIWriter aviWriter = new AVIWriter();    //aviÊÓÆµÂ¼ÖÆ
+        AVIWriter aviWriter = new AVIWriter();    //aviè§†é¢‘å½•åˆ¶
 
-        // ĞÂÖ¡ÊÂ¼ş
+        // æ–°å¸§äº‹ä»¶
         public event EventHandler NewFrame;
 
-        // URLÊôĞÔ
+        // URLå±æ€§
         public string URL
         {
             get { return videoSource.VideoSource; }
         }
 
-        // ÓÃ»§ÃûÊôĞÔ
+        // ç”¨æˆ·åå±æ€§
         public string Login
         {
             get { return videoSource.Login; }
         }
 
-        // ÃÜÂëÊôĞÔ
+        // å¯†ç å±æ€§
         public string Password
         {
             get { return videoSource.Password; }
         }
 
-        // ±àºÅÊôĞÔ
+        // ç¼–å·å±æ€§
         public int ID
         {
             get { return id; }
             set { id = value; }
         }
 
-        // Ãû×ÖÊôĞÔ
+        // åå­—å±æ€§
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
 
-        // ÃèÊöÊôĞÔ
+        // æè¿°å±æ€§
         public string Description
         {
             get { return description; }
             set { description = value; }
         }
 
-        // ÅäÖÃÊôĞÔ
+        // é…ç½®å±æ€§
         public object Configuration
         {
             get { return configuration; }
             set { configuration = value; }
         }
 
-        // ÊÓÆµÔ´ÊôĞÔ
+        // è§†é¢‘æºå±æ€§
         public VideoProvider Provider
         {
             get { return provider; }
             set { provider = value; }
         }
 
-        // ×îºóÒ»Ö¡
+        // æœ€åä¸€å¸§
         public Bitmap LastFrame
         {
             get { return lastFrame; }
         }
 
-        // ¿í¶ÈÊôĞÔ
+        // å®½åº¦å±æ€§
         public int Width
         {
             get { return width; }
         }
 
-        // ¸ß¶ÈÊôĞÔ
+        // é«˜åº¦å±æ€§
         public int Height
         {
             get { return height; }
         }
 
-        // Ö¡ÊÕµ½ÊôĞÔ
+        // å¸§æ”¶åˆ°å±æ€§
         public int FramesReceived
         {
             get { return (videoSource == null) ? 0 : videoSource.FramesReceived; }
         }
 
-        // ±ÈÌØÊÕµ½ÊôĞÔ
+        // æ¯”ç‰¹æ”¶åˆ°å±æ€§
         public int BytesReceived
         {
             get { return (videoSource == null) ? 0 : videoSource.BytesReceived; }
         }
 
-        // Ïß³Ì×´Ì¬ÊôĞÔ
+        // çº¿ç¨‹çŠ¶æ€å±æ€§
         public bool Running
         {
             get { return (videoSource == null) ? false : videoSource.Running; }
         }
 
         /// <summary>
-        /// ·½·¨²¿·Ö
+        /// æ–¹æ³•éƒ¨åˆ†
         /// </summary>
-        // ¹¹Ôìº¯Êı
+        // æ„é€ å‡½æ•°
         public Camera(string name)
         {
             this.name = name;
         }
 
-        // ´´½¨ÊÓÆµÔ´
+        // åˆ›å»ºè§†é¢‘æº
         public bool CreateVideoSource()
         {
             if ((provider != null) && ((videoSource = provider.CreateVideoSource(configuration)) != null))
             {
-                // °Ñvideo_NewFrame×¢²áµ½NewFrameÊÂ¼şÖĞ
+                // æŠŠvideo_NewFrameæ³¨å†Œåˆ°NewFrameäº‹ä»¶ä¸­
                 videoSource.NewFrame += new CameraEventHandler(video_NewFrame);
                 return true;
             }
             return false;
         }
 
-        // ¹Ø±ÕÊÓÆµÔ´
+        // å…³é—­è§†é¢‘æº
         public void CloseVideoSource()
         {
             if (videoSource != null)
             {
                 videoSource = null;
             }
-            // ÊÍ·Å×îºóÒ»Ö¡Õ¼ÓÃµÄ×ÊÔ´
+            // é‡Šæ”¾æœ€åä¸€å¸§å ç”¨çš„èµ„æº
             if (lastFrame != null)
             {
                 lastFrame.Dispose();
@@ -156,7 +157,7 @@ namespace IPCamera
             height = -1;
         }
 
-        // ¿ªÊ¼ÊÓÆµÔ´
+        // å¼€å§‹è§†é¢‘æº
         public void Start()
         {
             if (videoSource != null)
@@ -165,7 +166,7 @@ namespace IPCamera
             }
         }
 
-        // Í¨ÖªÊÓÆµÔ´Í£Ö¹
+        // é€šçŸ¥è§†é¢‘æºåœæ­¢
         public void SignalToStop()
         {
             if (videoSource != null)
@@ -174,7 +175,7 @@ namespace IPCamera
             }
         }
 
-        // µÈ´ıÊÓÆµÔ´ÖÕÖ¹
+        // ç­‰å¾…è§†é¢‘æºç»ˆæ­¢
         public void WaitForStop()
         {
             Monitor.Enter(this);
@@ -185,7 +186,7 @@ namespace IPCamera
             Monitor.Exit(this);
         }
 
-        // ÖÕÖ¹ÊÓÆµ
+        // ç»ˆæ­¢è§†é¢‘
         public void Stop()
         {
             Monitor.Enter(this);
@@ -196,37 +197,37 @@ namespace IPCamera
             Monitor.Exit(this);
         }
 
-        // ¼ÓËø
+        // åŠ é”
         public void Lock()
         {
             Monitor.Enter(this);
         }
 
-        // ½âËø
+        // è§£é”
         public void Unlock()
         {
             Monitor.Exit(this);
         }
 
-        // NewFrameÊÂ¼ş¼¤·¢´Ëº¯Êı
+        // NewFrameäº‹ä»¶æ¿€å‘æ­¤å‡½æ•°
         private void video_NewFrame(object sender, CameraEventArgs e)
         {
-            // Ïß³Ì¼ÓËø
+            // çº¿ç¨‹åŠ é”
             Monitor.Enter(this);
-            // ÇåÀí¾ÉÖ¡
+            // æ¸…ç†æ—§å¸§
             if (lastFrame != null)
             {
                 lastFrame.Dispose();
             }
-            // ¸´ÖÆÍ¼Æ¬
+            // å¤åˆ¶å›¾ç‰‡
             lastFrame = (Bitmap)e.Bitmap.Clone();
             recordFrame = lastFrame;
             width = lastFrame.Width;
             height = lastFrame.Height;
 
-            if (ÖÇ»Û¼à¿Ø.detector != null && ÖÇ»Û¼à¿Ø.luzhi1 == false)
+            if (æ™ºæ…§ç›‘æ§.detector != null && æ™ºæ…§ç›‘æ§.luzhi1 == false)
             {
-                ÖÇ»Û¼à¿Ø.motionLevel = ÖÇ»Û¼à¿Ø.detector.ProcessFrame(lastFrame);
+                æ™ºæ…§ç›‘æ§.motionLevel = æ™ºæ…§ç›‘æ§.detector.ProcessFrame(lastFrame);
             }
 
             if (photoing == true)
@@ -234,30 +235,30 @@ namespace IPCamera
                 photoing = false;
                 DateTime date = DateTime.Now;
                 String fileName = String.Format("{0}-{1}-{2} {3}-{4}-{5}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
-                recordFrame.Save(String.Format(".\\SmartVision\\Í¼Æ¬\\Camera_Vision_{0}_{1}.jpg", name, fileName), ImageFormat.Jpeg);
+                recordFrame.Save(String.Format(".\\SmartVision\\å›¾ç‰‡\\Camera_Vision_{0}_{1}.jpg", name, fileName), ImageFormat.Jpeg);
             }
 
-            // ½âËø
+            // è§£é”
             Monitor.Exit(this);
 
-            // Í¨Öª¿Í»§¶Ë  camera×Ô¼ºµÄĞÂÖ¡ÊÂ¼ş
+            // é€šçŸ¥å®¢æˆ·ç«¯  cameraè‡ªå·±çš„æ–°å¸§äº‹ä»¶
             if (NewFrame != null)
             {
                 NewFrame(this, new EventArgs());
             }
         }
 
-        //ÊÓÆµÂ¼ÖÆº¯Êı
+        //è§†é¢‘å½•åˆ¶å‡½æ•°
         public void RecordOpen()
         {
             DateTime date = DateTime.Now;
             String fileName = String.Format("{0}-{1}-{2} {3}-{4}-{5}", date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
-            aviWriter.Open(String.Format(".\\SmartVision\\ÊÓÆµ\\Camera_Vision_{0}_{1}.avi", name, fileName), width, height);
+            aviWriter.Open(String.Format(".\\SmartVision\\è§†é¢‘\\Camera_Vision_{0}_{1}.avi", name, fileName), width, height);
             aviWriter.FrameRate = 25;
             aviWriter.Quality = 100;
         }
 
-        //ÏòÊÓÆµÖĞÌí¼ÓĞÂÖ¡
+        //å‘è§†é¢‘ä¸­æ·»åŠ æ–°å¸§
         public void addFrame()
         {
             Monitor.Enter(this);
@@ -265,15 +266,15 @@ namespace IPCamera
             Monitor.Exit(this);
         }
 
-        //¹Ø±ÕÂ¼ÖÆ
+        //å…³é—­å½•åˆ¶
         public void RecordClose()
         {
-            Thread.Sleep(500);   // ·ÀÖ¹ÔÚ¹Ø±ÕÊ±£¬aviWriter.AddFrame(lastFrame);±¨´í
+            Thread.Sleep(500);   // é˜²æ­¢åœ¨å…³é—­æ—¶ï¼ŒaviWriter.AddFrame(lastFrame);æŠ¥é”™
             aviWriter.Close();
             aviWriter.Dispose();
         }
 
-        //ÅÄÕÕ
+        //æ‹ç…§
         public void TakePhoto()
         {
             photoing = true;

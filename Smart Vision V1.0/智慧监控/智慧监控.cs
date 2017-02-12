@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
@@ -14,8 +13,8 @@ using System.Data.SqlClient;
 using System.Data.OleDb;
 using System.Diagnostics;  //结束所有进程
 
-using AForge.Vision.Motion;
-using AForge.Imaging;
+using Accord.Vision.Motion;
+using Accord.Imaging;
 
 namespace IPCamera
 {

@@ -14,6 +14,8 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -35,26 +37,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AForge.Imaging, Version=2.2.4.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\AForge.Imaging.dll</HintPath>
+    <Reference Include="Accord, Version=3.4.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.3.4.0\lib\net40\Accord.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Vision, Version=2.2.4.0, Culture=neutral, PublicKeyToken=b612fa915eefaa06, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\AForge.Vision.dll</HintPath>
+    <Reference Include="Accord.Imaging, Version=3.3.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Imaging.3.3.0\lib\net40\Accord.Imaging.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Accord.MachineLearning, Version=3.3.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.MachineLearning.3.3.0\lib\net40\Accord.MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math, Version=3.3.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.3.0\lib\net40\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.3.0\lib\net40\Accord.Math.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics, Version=3.3.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Statistics.3.3.0\lib\net40\Accord.Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Video, Version=3.4.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Video.3.4.0\lib\net40\Accord.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Video.VFW, Version=3.4.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Video.VFW.3.4.0\lib\net40\Accord.Video.VFW.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Vision, Version=3.3.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Vision.3.3.0\lib\net40\Accord.Vision.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tiger.Video.VFW, Version=1.0.1946.25748, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Tiger.Video.VFW.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -270,7 +284,9 @@
     <EmbeddedResource Include="自定义控件\摄像头配置.resx">
       <DependentUpon>摄像头配置.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -301,20 +317,24 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DLL\dshow\dshow.csproj">
+      <Project>{5ec8a299-78f8-4bdc-95d7-1af66a01a073}</Project>
+      <Name>dshow</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DLL\EasyN\EasyN.csproj">
-      <Project>{22DE2F83-CBB6-41CE-9B9B-C5A353F5CBA4}</Project>
+      <Project>{22de2f83-cbb6-41ce-9b9b-c5a353f5cba4}</Project>
       <Name>EasyN</Name>
     </ProjectReference>
     <ProjectReference Include="..\DLL\jpeg\jpeg.csproj">
-      <Project>{41262D0E-35ED-4D0E-9D77-A05F71C32752}</Project>
+      <Project>{41262d0e-35ed-4d0e-9d77-a05f71c32752}</Project>
       <Name>jpeg</Name>
     </ProjectReference>
     <ProjectReference Include="..\DLL\local\local.csproj">
-      <Project>{8892D4E1-BDA5-4131-9567-DB9F42631616}</Project>
+      <Project>{8892d4e1-bda5-4131-9567-db9f42631616}</Project>
       <Name>local</Name>
     </ProjectReference>
     <ProjectReference Include="..\DLL\mjpeg\mjpeg.csproj">
-      <Project>{F504EA6E-26AF-4175-8CB2-25BC77A455B0}</Project>
+      <Project>{f504ea6e-26af-4175-8cb2-25bc77a455b0}</Project>
       <Name>mjpeg</Name>
     </ProjectReference>
     <ProjectReference Include="..\DLL\videosource\videosource.csproj">
@@ -347,6 +367,13 @@
     <None Include="Resources\camera7.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Accord.3.4.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.4.0\build\Accord.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Accord.3.4.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.4.0\build\Accord.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

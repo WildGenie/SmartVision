@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Drawing;
 using System.IO;
 using System.Xml;
@@ -11,11 +11,11 @@ using System.Data;
 namespace IPCamera
 {
 	/// <summary>
-    /// Configuration Ó¦ÓÃ³ÌĞòÅäÖÃ
+    /// Configuration åº”ç”¨ç¨‹åºé…ç½®
 	/// </summary>
 	public class Configuration
 	{
-		// ÅäÖÃÎÄ¼şÃû×Ö
+		// é…ç½®æ–‡ä»¶åå­—
 		private string settingsFile;
 		private string camerasFile;
 		private string viewsFile;
@@ -23,24 +23,24 @@ namespace IPCamera
         private string ConStr = "Provider=Microsoft.jet.OLEDB.4.0;Data source=" + System.Windows.Forms.Application.StartupPath + "\\Location.mdb";
         OleDbConnection con;
         OleDbCommand objcmd;
-		// Ö÷´°ÌåÎ»ÖÃºÍ´óĞ¡
+		// ä¸»çª—ä½“ä½ç½®å’Œå¤§å°
 		public Point	mainWindowLocation = new Point(100, 50);
 		public Size		mainWindowSize = new Size(800, 600);
 
-		//ÊÊÓ¦´°ÌåºÍÈ«ÆÁ
+		//é€‚åº”çª—ä½“å’Œå…¨å±
 		public bool		fitToScreen = true;
 		public bool		fullScreen = false;
 
-		// ±àºÅ
+		// ç¼–å·
 		private int		nextCameraID = 1;
 		private int		nextViewID = 1;
 
-        // ¼¯ºÏ
+        // é›†åˆ
 		public readonly VideoProviderCollection providers = new VideoProviderCollection();
 		public readonly CameraCollection cameras = new CameraCollection();
 		public readonly ViewCollection views = new ViewCollection();
 
-		// ¹¹Ôìº¯Êı
+		// æ„é€ å‡½æ•°
 		public Configuration(string path)
 		{
 			settingsFile = Path.Combine(path, "app.config");        
@@ -49,7 +49,7 @@ namespace IPCamera
             con = new OleDbConnection(ConStr);
 		}
 
-		// ĞÂÔöÉãÏñÍ·
+		// æ–°å¢æ‘„åƒå¤´
 		public void AddCamera(Camera camera)
 		{
 			camera.ID = nextCameraID++;
@@ -57,7 +57,7 @@ namespace IPCamera
 			SaveCameras();
 		}
 
-		// Æ¥ÅäÉãÏñÍ·
+		// åŒ¹é…æ‘„åƒå¤´
 		public bool CheckCamera(Camera camera)
 		{
 			foreach (Camera c in cameras)
@@ -68,7 +68,7 @@ namespace IPCamera
 			return true;
 		}
 
-		// É¾³ıÉãÏñÍ·
+		// åˆ é™¤æ‘„åƒå¤´
 		public bool DeleteCamera(Camera camera)
 		{
 			cameras.Remove(camera);
@@ -76,7 +76,7 @@ namespace IPCamera
 			return true;
 		}
 
-		// ĞÂÔöÒ³Ãæ
+		// æ–°å¢é¡µé¢
 		public void AddView(View view)
 		{
 			view.ID = nextViewID++;
@@ -84,7 +84,7 @@ namespace IPCamera
 			SaveViews();
 		}
 
-        // ¼ì²éÊÇ·ñÒÑ¾­´æÔÚÒ³Ãæ£¬ÎŞÔòÎªtrue.
+        // æ£€æŸ¥æ˜¯å¦å·²ç»å­˜åœ¨é¡µé¢ï¼Œæ— åˆ™ä¸ºtrue.
 		public bool CheckView(View view)
 		{
 			foreach (View v in views)
@@ -95,7 +95,7 @@ namespace IPCamera
 			return true;
 		}
 
-		// É¾³ıÒ³Ãæ
+		// åˆ é™¤é¡µé¢
 		public bool DeleteView(View view)
 		{
 			views.Remove(view);
@@ -104,38 +104,38 @@ namespace IPCamera
 		}
 
         /// <summary>
-        /// ´ÓXMLÎÄ¼şÖĞ±£´æºÍ¼ÓÔØÉãÏñÍ·Ò³ÃæÅäÖÃĞÅÏ¢
+        /// ä»XMLæ–‡ä»¶ä¸­ä¿å­˜å’ŒåŠ è½½æ‘„åƒå¤´é¡µé¢é…ç½®ä¿¡æ¯
         /// </summary>
 
-        // °ÑÓ¦ÓÃ³ÌĞòĞÅÏ¢¼ÓÔØµ½app.configÖĞ
+        // æŠŠåº”ç”¨ç¨‹åºä¿¡æ¯åŠ è½½åˆ°app.configä¸­
         public void SaveSettings()
         {
             FileStream fs = new FileStream(settingsFile, FileMode.Create);
             XmlTextWriter xmlOut = new XmlTextWriter(fs, Encoding.UTF8);
 
-            // Ôö¼ÓÉìËõ¿É¶ÁĞÔ
+            // å¢åŠ ä¼¸ç¼©å¯è¯»æ€§
             xmlOut.Formatting = Formatting.Indented;
 
-            // ¿ªÊ¼Ğ´Èë
+            // å¼€å§‹å†™å…¥
             xmlOut.WriteStartDocument();
-            xmlOut.WriteComment("ÖÇ»Û¼à¿ØÏµÍ³ÅäÖÃÎÄ¼ş");
+            xmlOut.WriteComment("æ™ºæ…§ç›‘æ§ç³»ç»Ÿé…ç½®æ–‡ä»¶");
 
-            // ¸ùÄ¿Â¼
-            xmlOut.WriteStartElement("ÖÇ»Û¼à¿Ø");
+            // æ ¹ç›®å½•
+            xmlOut.WriteStartElement("æ™ºæ…§ç›‘æ§");
 
-            // Ö÷´°ÌåÄ¿Â¼
+            // ä¸»çª—ä½“ç›®å½•
             xmlOut.WriteStartElement("MainWindow");
             xmlOut.WriteAttributeString("x", mainWindowLocation.X.ToString());
             xmlOut.WriteAttributeString("y", mainWindowLocation.Y.ToString());
-            xmlOut.WriteAttributeString("¿í¶È", mainWindowSize.Width.ToString());
-            xmlOut.WriteAttributeString("¸ß¶È", mainWindowSize.Height.ToString());
+            xmlOut.WriteAttributeString("å®½åº¦", mainWindowSize.Width.ToString());
+            xmlOut.WriteAttributeString("é«˜åº¦", mainWindowSize.Height.ToString());
             xmlOut.WriteEndElement();
 
             xmlOut.WriteEndElement();
             xmlOut.Close();
         }
 
-        // ´Óapp.configÖĞ¼ÓÔØÓ¦ÓÃ³ÌĞòÅäÖÃĞÅÏ¢
+        // ä»app.configä¸­åŠ è½½åº”ç”¨ç¨‹åºé…ç½®ä¿¡æ¯
         public bool LoadSettings()
         {
             bool ret = false;
@@ -146,34 +146,34 @@ namespace IPCamera
 
                 try
                 {
-                    // ´ò¿ªÎÄ¼ş
+                    // æ‰“å¼€æ–‡ä»¶
                     fs = new FileStream(settingsFile, FileMode.Open);
-                    // ´´½¨XMLreader
+                    // åˆ›å»ºXMLreader
                     xmlIn = new XmlTextReader(fs);
-                    // ºöÂÔ¿ÕÄÚÈİ½Úµã
+                    // å¿½ç•¥ç©ºå†…å®¹èŠ‚ç‚¹
                     xmlIn.WhitespaceHandling = WhitespaceHandling.None;
                     xmlIn.MoveToContent();
 
-                    // Æ¥Åä¸ùÄ¿Â¼
-                    if (xmlIn.Name != "ÖÇ»Û¼à¿Ø")
+                    // åŒ¹é…æ ¹ç›®å½•
+                    if (xmlIn.Name != "æ™ºæ…§ç›‘æ§")
                         throw new ApplicationException("");
 
-                    // Æ¥ÅäÏÂÒ»½Úµã
+                    // åŒ¹é…ä¸‹ä¸€èŠ‚ç‚¹
                     xmlIn.Read();
                     if (xmlIn.NodeType == XmlNodeType.EndElement)
                         xmlIn.Read();
 
-                    // Æ¥ÅäÖ÷´°Ìå½Úµã
+                    // åŒ¹é…ä¸»çª—ä½“èŠ‚ç‚¹
                     if (xmlIn.Name != "MainWindow")
                         throw new ApplicationException("");
 
-                    // Ö÷´°ÌåĞÅÏ¢
+                    // ä¸»çª—ä½“ä¿¡æ¯
                     int x = Convert.ToInt32(xmlIn.GetAttribute("x"));
                     int y = Convert.ToInt32(xmlIn.GetAttribute("y"));
-                    int width = Convert.ToInt32(xmlIn.GetAttribute("¿í¶È"));
-                    int height = Convert.ToInt32(xmlIn.GetAttribute("¸ß¶È"));
+                    int width = Convert.ToInt32(xmlIn.GetAttribute("å®½åº¦"));
+                    int height = Convert.ToInt32(xmlIn.GetAttribute("é«˜åº¦"));
 
-                    // ²éÑ¯ÏÂÒ»½Úµã
+                    // æŸ¥è¯¢ä¸‹ä¸€èŠ‚ç‚¹
                     xmlIn.Read();
                     if (xmlIn.NodeType == XmlNodeType.EndElement)
                         xmlIn.Read();
@@ -196,30 +196,30 @@ namespace IPCamera
         }
 
 
-        // °ÑÕû¸öÉãÏñÍ·Ä¿Â¼±£´æµ½xmlÖĞ
+        // æŠŠæ•´ä¸ªæ‘„åƒå¤´ç›®å½•ä¿å­˜åˆ°xmlä¸­
 		public void SaveCameras()
 		{
-			// ´ò¿ª»ò´´½¨ÎÄ¼ş
+			// æ‰“å¼€æˆ–åˆ›å»ºæ–‡ä»¶
 			FileStream		fs = new FileStream(camerasFile, FileMode.Create);
-			// ´´½¨XmlWriter
+			// åˆ›å»ºXmlWriter
 			XmlTextWriter	xmlOut = new XmlTextWriter(fs, Encoding.UTF8);
         	
-            // ×Ô¶¯Ëõ½øÊÊºÏÔÄ¶Á
+            // è‡ªåŠ¨ç¼©è¿›é€‚åˆé˜…è¯»
 			xmlOut.Formatting = Formatting.Indented;
-			// ¿ªÊ¼Ğ´Èë
+			// å¼€å§‹å†™å…¥
 			xmlOut.WriteStartDocument();
 		
-            // ¸ùÄ¿Â¼¿ªÊ¼
+            // æ ¹ç›®å½•å¼€å§‹
 			xmlOut.WriteStartElement("Cameras");
-			// ±£´æËùÓĞµÄÉãÏñÍ·
+			// ä¿å­˜æ‰€æœ‰çš„æ‘„åƒå¤´
 			SaveCameras(xmlOut);
-			// ¸ùÄ¿Â¼½áÊø
+			// æ ¹ç›®å½•ç»“æŸ
 			xmlOut.WriteEndElement();           
 		
-            // ¹Ø±ÕÎÄ¼ş
+            // å…³é—­æ–‡ä»¶
 			xmlOut.Close();
 		}
-		// °Ñµ¥¸öÉãÏñÍ·½ÚµãĞÅÏ¢±£´æ½øXmlÎÄµµ
+		// æŠŠå•ä¸ªæ‘„åƒå¤´èŠ‚ç‚¹ä¿¡æ¯ä¿å­˜è¿›Xmlæ–‡æ¡£
 		private void SaveCameras(XmlTextWriter writer)
 		{
             con.Open();
@@ -229,25 +229,25 @@ namespace IPCamera
             con.Close();      
 			foreach (Camera camera in cameras)
 			{
-					// ĞÂ½¨ "Camera" ½Úµã
+					// æ–°å»º "Camera" èŠ‚ç‚¹
 					writer.WriteStartElement("Camera");
-					// Ğ´Èë½ÚµãĞÅÏ¢
+					// å†™å…¥èŠ‚ç‚¹ä¿¡æ¯
 					writer.WriteAttributeString("id", camera.ID.ToString());
 					writer.WriteAttributeString("name", camera.Name);
 					writer.WriteAttributeString("desc", camera.Description);
 
    				    if (camera.Provider != null)
 					{
-						// Ğ´ÈëÊÓÆµÔ´Ãû×Ö
-						writer.WriteAttributeString("ÊÓÆµÔ´", camera.Provider.ProviderName);
+						// å†™å…¥è§†é¢‘æºåå­—
+						writer.WriteAttributeString("è§†é¢‘æº", camera.Provider.ProviderName);
 
 						if (camera.Configuration != null)
 						{
-                            // Ğ´ÈëÊÓÆµÅäÖÃĞÅÏ¢
+                            // å†™å…¥è§†é¢‘é…ç½®ä¿¡æ¯
 							camera.Provider.SaveConfiguration(writer, camera.Configuration);
 						}
 					}
-					// ¹Ø±Õ "Camera" ½Úµã
+					// å…³é—­ "Camera" èŠ‚ç‚¹
 					writer.WriteEndElement();
                     if (con.State == ConnectionState.Closed)
                     {
@@ -255,7 +255,7 @@ namespace IPCamera
                     }
                     if (con.State == ConnectionState.Open)
                     {
-                        string sql = "select count(*) FROM [Location] where Ãû³Æ='" + camera.Name + "' ";        
+                        string sql = "select count(*) FROM [Location] where åç§°='" + camera.Name + "' ";        
                         objcmd = new OleDbCommand(sql, con);
                         Int32 id_e = (Int32)objcmd.ExecuteScalar();
                         if (id_e > 0)
@@ -267,23 +267,23 @@ namespace IPCamera
                             {
                                 switch (camera.Name)
                                 {
-                                    case "ÃÀ¹ú»ªÊ¢¶Ù½ÖÊĞÉãÏñÍ·":
-                                        sql = "insert into Location(Ãû³Æ,Ãû×Ö,ÊÓÆµÔ´,Î³¶È,¾­¶È,µØµã) values('" + camera.Name + "','" + camera.Name + "','" + camera.Provider.ProviderName + "','37.300275','-91.05468','ÃÀ¹ú')";
+                                    case "ç¾å›½åç››é¡¿è¡—å¸‚æ‘„åƒå¤´":
+                                        sql = "insert into Location(åç§°,åå­—,è§†é¢‘æº,çº¬åº¦,ç»åº¦,åœ°ç‚¹) values('" + camera.Name + "','" + camera.Name + "','" + camera.Provider.ProviderName + "','37.300275','-91.05468','ç¾å›½')";
                                         objcmd = new OleDbCommand(sql, con);
                                         objcmd.ExecuteNonQuery();
                                         break;
-                                    case "Î÷°àÑÀ¼ÓÄÇÀûÌìÌåÎïÀí´óÑ§ÉãÏñÍ·":
-                                        sql = "insert into Location(Ãû³Æ,Ãû×Ö,ÊÓÆµÔ´,Î³¶È,¾­¶È,µØµã) values('" + camera.Name + "','" + camera.Name + "','" + camera.Provider.ProviderName + "','40.463667','-3.74922','Î÷°àÑÀ¼ÓÄÇÀûÌìÌåÎïÀí´óÑ§')";
+                                    case "è¥¿ç­ç‰™åŠ é‚£åˆ©å¤©ä½“ç‰©ç†å¤§å­¦æ‘„åƒå¤´":
+                                        sql = "insert into Location(åç§°,åå­—,è§†é¢‘æº,çº¬åº¦,ç»åº¦,åœ°ç‚¹) values('" + camera.Name + "','" + camera.Name + "','" + camera.Provider.ProviderName + "','40.463667','-3.74922','è¥¿ç­ç‰™åŠ é‚£åˆ©å¤©ä½“ç‰©ç†å¤§å­¦')";
                                         objcmd = new OleDbCommand(sql, con);
                                         objcmd.ExecuteNonQuery();
                                         break;
-                                    case "ÉÏº£´óÑ§DÂ¥ÉãÏñÍ·":
-                                        sql = "insert into Location(Ãû³Æ,Ãû×Ö,ÊÓÆµÔ´,Î³¶È,¾­¶È,µØµã) values('" + camera.Name + "','" + camera.Name + "','" + camera.Provider.ProviderName + "','31.314928','121.395085','ÉÏº£ÊĞ±¦É½ÇøÉÏº£´óÑ§')";
+                                    case "ä¸Šæµ·å¤§å­¦Dæ¥¼æ‘„åƒå¤´":
+                                        sql = "insert into Location(åç§°,åå­—,è§†é¢‘æº,çº¬åº¦,ç»åº¦,åœ°ç‚¹) values('" + camera.Name + "','" + camera.Name + "','" + camera.Provider.ProviderName + "','31.314928','121.395085','ä¸Šæµ·å¸‚å®å±±åŒºä¸Šæµ·å¤§å­¦')";
                                         objcmd = new OleDbCommand(sql, con);
                                         objcmd.ExecuteNonQuery();
                                         break;
                                     default:
-                                        sql = "insert into Location(Ãû³Æ,Ãû×Ö,ÊÓÆµÔ´) values('" + camera.Name + "','" + camera.Name + "','" + camera.Provider.ProviderName + "')";
+                                        sql = "insert into Location(åç§°,åå­—,è§†é¢‘æº) values('" + camera.Name + "','" + camera.Name + "','" + camera.Provider.ProviderName + "')";
                                         objcmd = new OleDbCommand(sql, con);
                                         objcmd.ExecuteNonQuery();
                                         break;
@@ -297,10 +297,10 @@ namespace IPCamera
 			}
 		}
 
-		// ´ÓXmlÖĞ¼ÓÔØÕû¸öÉãÏñÍ·Ä¿Â¼
+		// ä»Xmlä¸­åŠ è½½æ•´ä¸ªæ‘„åƒå¤´ç›®å½•
 		public void LoadCameras()
 		{
-			// ¼ì²éÎÄ¼şÊÇ·ñ´æÔÚ
+			// æ£€æŸ¥æ–‡ä»¶æ˜¯å¦å­˜åœ¨
 			if (File.Exists(camerasFile))
 			{
 				FileStream		fs = null;
@@ -308,22 +308,22 @@ namespace IPCamera
 
 				try
 				{
-					// ´ò¿ªÎÄ¼ş
+					// æ‰“å¼€æ–‡ä»¶
 					fs = new FileStream(camerasFile, FileMode.Open);
-					// ´´½¨XMLreader
+					// åˆ›å»ºXMLreader
 					xmlIn = new XmlTextReader(fs);
-                    // Ìø¹ı¿Õ°×ÄÚÈİ¼ÌĞø
+                    // è·³è¿‡ç©ºç™½å†…å®¹ç»§ç»­
 					xmlIn.WhitespaceHandling = WhitespaceHandling.None;
 					xmlIn.MoveToContent();
-					// ¼ì²é¸ùÄ¿Â¼
+					// æ£€æŸ¥æ ¹ç›®å½•
                     if (xmlIn.Name != "Cameras")
 						throw new ApplicationException("");
-					// ²éÑ¯ÏÂÒ»¸ö×Ó½Úµã
+					// æŸ¥è¯¢ä¸‹ä¸€ä¸ªå­èŠ‚ç‚¹
 					xmlIn.Read();
 					if (xmlIn.NodeType == XmlNodeType.EndElement)
 						xmlIn.Read();
 
-					// ¼ÓÔØÉãÏñÍ·
+					// åŠ è½½æ‘„åƒå¤´
 					LoadCameras(xmlIn);
 				}
 				catch (Exception)
@@ -337,27 +337,27 @@ namespace IPCamera
 			}
 		}
 
-        // ´ÓXmlÖĞ¼ÓÔØµ¥¸öÉãÏñÍ·½ÚµãĞÅÏ¢
+        // ä»Xmlä¸­åŠ è½½å•ä¸ªæ‘„åƒå¤´èŠ‚ç‚¹ä¿¡æ¯
         private void LoadCameras(XmlTextReader reader)
         {
-            // ¼ÓÔØËùÓĞµÄÉãÏñÍ·ĞÅÏ¢½Úµã
+            // åŠ è½½æ‰€æœ‰çš„æ‘„åƒå¤´ä¿¡æ¯èŠ‚ç‚¹
             while (reader.Name == "Camera")
             {
                 int	depth = reader.Depth;
 
-                // ´´½¨ĞÂÉãÏñÍ·
+                // åˆ›å»ºæ–°æ‘„åƒå¤´
                 Camera camera = new Camera(reader.GetAttribute("name"));
                 camera.ID			= int.Parse(reader.GetAttribute("id"));
                 camera.Description	= reader.GetAttribute("desc");
-                camera.Provider		= providers.GetProviderByName(reader.GetAttribute("ÊÓÆµÔ´"));
+                camera.Provider		= providers.GetProviderByName(reader.GetAttribute("è§†é¢‘æº"));
 
-                // ¼ÓÔØÅäÖÃĞÅÏ¢
+                // åŠ è½½é…ç½®ä¿¡æ¯
                 if (camera.Provider != null)
                 {
                     camera.Configuration = camera.Provider.LoadConfiguration(reader);
                 }
 
-                // °ÑÉãÏñÍ·¼Óµ½¼¯ºÏÖĞ
+                // æŠŠæ‘„åƒå¤´åŠ åˆ°é›†åˆä¸­
                 cameras.Add(camera);
 
                 if (camera.ID >= nextCameraID)
@@ -365,10 +365,10 @@ namespace IPCamera
                     nextCameraID = camera.ID + 1;
                 }
 
-                // ²éÑ¯ÏÂÒ»×Ó½Úµã
+                // æŸ¥è¯¢ä¸‹ä¸€å­èŠ‚ç‚¹
                 reader.Read();
 
-                // ÒÆ¶¯µ½ÏÂÒ»¸ö½Úµã
+                // ç§»åŠ¨åˆ°ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
                 while (reader.NodeType == XmlNodeType.EndElement)
                     reader.Read();
                 if (reader.Depth < depth)
@@ -377,7 +377,7 @@ namespace IPCamera
         }
 
 
-        // °ÑÕû¸öÒ³ÃæÄ¿Â¼±£´æµ½xmlÖĞ
+        // æŠŠæ•´ä¸ªé¡µé¢ç›®å½•ä¿å­˜åˆ°xmlä¸­
 		public void SaveViews()
 		{
 			FileStream		fs = new FileStream(viewsFile, FileMode.Create);
@@ -391,7 +391,7 @@ namespace IPCamera
 			xmlOut.Close();
 		}
 
-        // °Ñµ¥¸öÒ³Ãæ½ÚµãĞÅÏ¢±£´æ½øXmlÎÄµµ
+        // æŠŠå•ä¸ªé¡µé¢èŠ‚ç‚¹ä¿¡æ¯ä¿å­˜è¿›Xmlæ–‡æ¡£
         private void SaveViews(XmlTextWriter writer)
         {
             foreach (View view in views)
@@ -405,7 +405,7 @@ namespace IPCamera
                     writer.WriteAttributeString("width", view.CellWidth.ToString());
                     writer.WriteAttributeString("height", view.CellHeight.ToString());
 
-                    // Ğ´ÈëÉãÏñÍ·
+                    // å†™å…¥æ‘„åƒå¤´
                     string[] strIDs = new string[View.MaxRows * View.MaxCols];
                     for (int i = 0, k = 0; i < View.MaxRows; i++)
                     {
@@ -420,7 +420,7 @@ namespace IPCamera
                 }
         }
 
-        // ´ÓXmlÖĞ¼ÓÔØÕû¸öÒ³ÃæÄ¿Â¼
+        // ä»Xmlä¸­åŠ è½½æ•´ä¸ªé¡µé¢ç›®å½•
 		public void LoadViews()
 		{
 			if (File.Exists(viewsFile))
@@ -456,7 +456,7 @@ namespace IPCamera
 			}
 		}
 
-        // ´ÓXmlÖĞ¼ÓÔØµ¥¸öÒ³Ãæ½ÚµãĞÅÏ¢
+        // ä»Xmlä¸­åŠ è½½å•ä¸ªé¡µé¢èŠ‚ç‚¹ä¿¡æ¯
         private void LoadViews(XmlTextReader reader)
         {
             while (reader.Name == "View")
@@ -485,7 +485,7 @@ namespace IPCamera
                 if (view.ID >= nextViewID)
                     nextViewID = view.ID + 1;
 
-                // ¶ÁÈ¡ÏÂÒ»½Úµã
+                // è¯»å–ä¸‹ä¸€èŠ‚ç‚¹
                 reader.Read();
                 while (reader.NodeType == XmlNodeType.EndElement)
                     reader.Read();

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
 using System.Collections;
 using System.Drawing;
@@ -11,8 +10,8 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO;
 
-using AForge.Vision.Motion;
-using AForge.Imaging;
+using Accord.Vision.Motion;
+using Accord.Imaging;
 
 namespace IPCamera
 {

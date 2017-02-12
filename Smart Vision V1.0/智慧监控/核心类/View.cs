@@ -1,10 +1,10 @@
-using System;
+ï»¿using System;
 
 
 namespace IPCamera
 {
 	/// <summary>
-	/// View ÊÓÍ¼Àà
+	/// View è§†å›¾ç±»
 	/// </summary>
 	public class View
 	{
@@ -22,49 +22,49 @@ namespace IPCamera
         public const int MaxRows = 3;
         public const int MaxCols = 3;
 
-		// ID ±àºÅÊôĞÔ
+		// ID ç¼–å·å±æ€§
 		public int ID
 		{
 			get { return id; }
 			set { id = value; }
 		}	
 
-		// Name Ãû×ÖÊôĞÔ
+		// Name åå­—å±æ€§
 		public string Name
 		{
 			get { return name; }
 			set { name = value; }
 		}
 
-		// ID ÃèÊöÊôĞÔ
+		// ID æè¿°å±æ€§
 		public string Description
 		{
 			get { return description; }
 			set { description = value; }
 		}
 
-		// Cols ÁĞÊôĞÔ
+		// Cols åˆ—å±æ€§
 		public short Cols
 		{
 			get { return cols; }
             set { cols = Math.Max((short)1, Math.Min((short)MaxCols, value)); }
 		}
 
-		// Rows ĞĞÊôĞÔ
+		// Rows è¡Œå±æ€§
 		public short Rows
 		{
 			get { return rows; }
 			set { rows = Math.Max((short) 1, Math.Min((short)MaxRows, value)); }
 		}
 
-        // CellWidth ×ÓÒ³Ãæ¿í 50~800
+        // CellWidth å­é¡µé¢å®½ 50~800
 		public short CellWidth 
 		{
 			get { return cellWidth; }
 			set { cellWidth = Math.Max((short) 50, Math.Min((short) 800, value)); }
 		}
 
-        // CellHeight ×ÓÒ³Ãæ¸ß 50~800
+        // CellHeight å­é¡µé¢é«˜ 50~800
 		public short CellHeight
 		{
 			get { return cellHeight; }
@@ -72,21 +72,21 @@ namespace IPCamera
 		}
        
         /// <summary>
-        /// ·½·¨²¿·Ö
+        /// æ–¹æ³•éƒ¨åˆ†
         /// </summary>
-		// ¹¹Ôìº¯Êı
+		// æ„é€ å‡½æ•°
 		public View(string name)
 		{
 			this.name = name;
 		}
 
-		// ÉèÖÃÉãÏñÍ·Óë×ÓÒ³Ãæ¶ÔÓ¦
+		// è®¾ç½®æ‘„åƒå¤´ä¸å­é¡µé¢å¯¹åº”
 		public void SetCamera(int row, int col, int cameraID)
 		{
 			cameraIDs[row, col] = cameraID;
 		}
 
-		// ¸ù¾İĞĞÁĞ¶¨Î»ÉãÏñÍ·
+		// æ ¹æ®è¡Œåˆ—å®šä½æ‘„åƒå¤´
 		public int GetCamera(int row, int col)
 		{
 			if ((row >= 0) && (col >= 0) && (row < MaxRows) && (col < MaxCols))

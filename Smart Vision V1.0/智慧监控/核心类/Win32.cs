@@ -1,18 +1,18 @@
-using System;
+ï»¿using System;
 using System.Runtime.InteropServices;
 
 namespace IPCamera
 {
 	/// <summary>
-	/// Win32APIº¯Êı
+	/// Win32APIå‡½æ•°
 	/// </summary>
 	public class Win32
 	{
-		// GetSystemMetrics - »ñÈ¡ÏµÍ³ÆÁÄ»³ß´çºÍÅäÖÃĞÅÏ¢
+		// GetSystemMetrics - è·å–ç³»ç»Ÿå±å¹•å°ºå¯¸å’Œé…ç½®ä¿¡æ¯
 		[DllImport("user32.dll")]
 		public static extern int GetSystemMetrics( [MarshalAs(UnmanagedType.I4)] SystemMetrics metric);
 
-		// ÏµÍ³ÆÁÄ»ĞÅÏ¢
+		// ç³»ç»Ÿå±å¹•ä¿¡æ¯
 		public enum SystemMetrics
 		{
 			CXSCREEN	= 0,

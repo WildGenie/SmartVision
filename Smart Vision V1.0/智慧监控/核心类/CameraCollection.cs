@@ -1,15 +1,15 @@
-using System;
+ï»¿using System;
 using System.Collections;
 
 
 namespace IPCamera
 {
 	/// <summary>
-    /// CameraCollection ÊÓÆµ¼¯ºÏÀà 
+    /// CameraCollection è§†é¢‘é›†åˆç±» 
 	/// </summary>
 	public class CameraCollection : CollectionBase
 	{
-        // ¸ù¾İindex²éÑ¯Camera
+        // æ ¹æ®indexæŸ¥è¯¢Camera
 		public Camera this[int index]
 		{
 			get
@@ -18,7 +18,7 @@ namespace IPCamera
 			}
 		}
 
-        // ¸ù¾İÃû×Ö»ñµÃcamera    
+        // æ ¹æ®åå­—è·å¾—camera    
         public Camera GetCamera(string name)
         {
             foreach (Camera camera in InnerList)
@@ -29,7 +29,7 @@ namespace IPCamera
             return null;
         }
 
-        // ¸ù¾İcameraID»ñµÃcamera
+        // æ ¹æ®cameraIDè·å¾—camera
         public Camera GetCamera(int cameraID)
         {
             foreach (Camera camera in InnerList)
@@ -40,13 +40,13 @@ namespace IPCamera
             return null;
         }
 
-		// °Ñcamera¼Óµ½¼¯ºÏÖĞ
+		// æŠŠcameraåŠ åˆ°é›†åˆä¸­
 		public void Add(Camera camera)
 		{
 			InnerList.Add(camera);
 		}
 
-        // °Ñcamera´Ó¼¯ºÏÖĞÒÆ³ı
+        // æŠŠcameraä»é›†åˆä¸­ç§»é™¤
 		public void Remove(Camera camera)
 		{
 			InnerList.Remove(camera);
